@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "BaiTH1", "BaiTH1\BaiTH1.dtproj", "{C7742939-A5F9-4131-ADA4-8430EA404E01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7742939-A5F9-4131-ADA4-8430EA404E01}.Development|Default.ActiveCfg = Development
+		{C7742939-A5F9-4131-ADA4-8430EA404E01}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F55FD2A7-535F-49A7-8C70-BCF0227CF2FC}
+	EndGlobalSection
+EndGlobal
