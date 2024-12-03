@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "25_NguyenHoangPhat", "NguyenHoangPhat\25_NguyenHoangPhat.dtproj", "{0DB1C574-D1EC-42AC-A72E-99804CB24C0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DB1C574-D1EC-42AC-A72E-99804CB24C0B}.Development|Default.ActiveCfg = Development
+		{0DB1C574-D1EC-42AC-A72E-99804CB24C0B}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
