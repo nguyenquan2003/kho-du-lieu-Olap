@@ -1,0 +1,96 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Bai2</Database>
+    <Server>localhost</Server>
+    <ConnectionString>DataSource=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>k1DNraMAAEFmnxRzu+IwXdT2cbI=03/12/2024 11:01:2203/12/2024 11:01:22</TimeStamp>
+        <ID>
+          <String>Bai22</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>mIIhj+RvmHrif4lpzL2hqfbJKWE=03/12/2024 11:01:4803/12/2024 11:01:48</TimeStamp>
+        <ID>
+          <String>A111PC07</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>eh4phasjrjlk4Rb3EEDPnneUV8w=03/12/2024 11:02:1803/12/2024 11:02:18</TimeStamp>
+        <ID>
+          <String>Bai22 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>SO6zKU16jyw4T9ev/7v3D7wPdHQ=03/12/2024 11:02:3503/12/2024 11:02:35</TimeStamp>
+        <ID>
+          <String>Bai22</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>xB9fWOyh2dxCVsBZk02eb9cjEVc=03/12/2024 11:03:2803/12/2024 11:02:51</TimeStamp>
+        <ID>
+          <String>Dim Loai Xe</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Qqc6qt/iAUxHx6dJpjIAo2UV3pE=03/12/2024 11:03:2803/12/2024 11:02:51</TimeStamp>
+        <ID>
+          <String>Dim Loai Cua Hang</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>pMmSxbAoGq3t5gDRe4IIOqmJjZM=03/12/2024 11:03:2803/12/2024 11:02:51</TimeStamp>
+        <ID>
+          <String>Dim Location</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>z2Gkyrng5IkCN03VC19v9lTD/Jo=03/12/2024 11:03:2803/12/2024 11:02:51</TimeStamp>
+        <ID>
+          <String>Dim Time</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>+nJ06KlG6ufc0S/IAbxsuzb/gys=03/12/2024 11:03:2803/12/2024 11:02:518J7jQNXCNI76cHw6bTy4GDEm4oM=03/12/2024 11:02:5103/12/2024 11:02:51</TimeStamp>
+        <ID>
+          <String>Bai22</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>AZcUKlHBniA2/uEiERAnPAl4yOY=03/12/2024 09:55:3203/12/2024 09:55:32</TimeStamp>
+      <ID>
+        <String>Bai2</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2024-12-03T04:03:33.483333Z</LastDeployed>
+</DeploymentSnapshot>
