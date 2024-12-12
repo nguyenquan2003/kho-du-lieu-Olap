@@ -1,0 +1,89 @@
+--VD1: HIEN THI DOANH THU TOAN HE THONG
+SELECT Sales ON COLUMNS
+FROM [TEST]
+
+--VD2: HIEN THI DOANH THU THEO NAM (THEM CHIEU THOI GIAN: NAM)
+SELECT Sales ON COLUMNS,
+[Dim Time].[Order Year].[Order Year] ON ROWS
+FROM [TEST]
+
+--VD3: HIEN THI DOANH THU THEO NAM (THEM CHIEU THOI GIAN: NAM) BO GIA TRI NULL
+SELECT Sales ON COLUMNS,
+NON EMPTY [Dim Time].[Order Year].[Order Year] ON ROWS
+FROM [TEST]
+
+--VD4: HIEN THI DOANH THU THEO NAM (THEM CHIEU THOI GIAN: NAM) 
+--COLUMN: 0 --ROWS: 1
+SELECT NON EMPTY Sales ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] ON 1
+FROM [TEST]
+
+--VD5: HIEN THI DOANH THU THEO NAM (THEM CHIEU THOI GIAN: NAM) XOAY TRUC
+SELECT NON EMPTY Sales ON 1,
+NON EMPTY [Dim Time].[Order Year].[Order Year] ON 0
+FROM [TEST]
+
+--VD6: HIEN THI DOANH THU, LOI NHUAN THEO NAM
+SELECT NON EMPTY {Sales,Profit} ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] ON 1
+FROM [TEST]
+
+--VD7: HIEN THI DOANH THU, LOI NHUAN THEO NAM tai vn
+SELECT NON EMPTY {Sales,Profit} ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] ON 1
+FROM [TEST]
+WHERE [Dim Location].[Country].&[Vietnam]
+
+--VD8: HIEN THI DOANH THU, LOI NHUAN THEO NAM TAI VN VA AN DO
+SELECT NON EMPTY {Sales,Profit} ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] ON 1
+FROM [TEST]
+WHERE {[Dim Location].[Country].&[Vietnam],[Dim Location].[Country].&[India]}
+
+--VD9: HIEN THI DOANH THU, LOI NHUAN THEO NAM TAI VN 
+SELECT NON EMPTY {Sales,Profit} ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] * [Dim Location].[Country].&[Vietnam] ON 1
+FROM [TEST]
+
+--VD10: HIEN THI DOANH THU, LOI NHUAN THEO NAM TAI VN VA INDIA
+SELECT NON EMPTY {Sales,Profit} ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] * {[Dim Location].[Country].&[Vietnam],[Dim Location].[Country].&[India]} ON 1
+FROM [TEST]
+
+--VD11: HIEN THI DOANH THU, LOI NHUAN THEO NAM TAI VN THEO PHAN KHUC KHACH HANG
+SELECT NON EMPTY {Sales,Profit} ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] * [Dim Location].[Country].&[Vietnam] * [Dim Customers].[Segment].[Segment] ON 1
+FROM [TEST]
+
+--VD12
+SELECT NON EMPTY Sales ON 0, 
+NON EMPTY [Dim Time].[Order Year].[Order Year] ON 1
+FROM [TEST] 
+GO
+SELECT NON EMPTY Sales ON 0,
+NON EMPTY FILTER ([Dim Time].[Order Year].[Order Year], Sales>3000000) ON 1
+FROM [TEST] 
+
+--VD13
+SELECT NON EMPTY Sales ON 0, 
+NON EMPTY [Dim Time].[Order Year].[Order Year] ON 1
+FROM [TEST] 
+GO
+SELECT NON EMPTY Sales ON 0,
+NON EMPTY FILTER ([Dim Time].[Order Year].[Order Year], Sales, DESC) ON 1
+FROM [TEST]
+
+--VD14
+WITH MEMBER CK AS [Measures].[Sales] * 0.15
+select CK ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] ON 1
+FROM [TEST]
+
+--VD15
+SELECT [Measures].[Sales] ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] * [Dim Time].[Order Month].[Order Month] ON 1
+FROM [TEST]
+
+SELECT [Measures].[Sales] ON 0,
+NON EMPTY [Dim Time].[Order Year].[Order Year] * [Dim Time].[Order Month].[Order Month].MEMBERS ON 1
+FROM [TEST]

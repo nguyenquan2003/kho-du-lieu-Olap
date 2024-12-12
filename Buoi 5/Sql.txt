@@ -1,0 +1,93 @@
+--BAI1.
+--Câu 1: Cho biết tổng lợi nhuận (Profit), doanh thu (Sales), số lượng (Quantity), chi phí
+--vận chuyển (Shipping Cost), chiết khấu,....hiển thị dữ liệu theo cột.
+SELECT {[Measures].[Profit], [Measures].[Sales], [Measures].[Quantity], [Measures].[Shipping Cost], [Measures].[Discount]} ON COLUMNS
+FROM [TEST];
+--Câu 2: Cho biết tổng lợi nhuận (Profit) theo nhóm hàng (Category). Trong đó lợi nhuận
+--hiển thị trên cột, loại hàng hiển thị trên dòng.
+SELECT {[Measures].[Profit]} ON COLUMNS,
+[Category].[Category].Members ON ROWS
+FROM [TEST];
+----------Cau 3:-----------
+SELECT {[Measures].[Profit]} ON COLUMNS,
+ORDER([Category].[Category].Members, [Measures].[Profit], BDESC) ON ROWS
+FROM [TEST];
+----------Cau 4:-----------
+SELECT {[Measures].[Profit]} ON COLUMNS
+FROM [TEST]
+WHERE {[Category].[Category].[Furniture]};
+//WHERE {[Category].[Category].[Technology]} * {[Category].[Category].[Furniture]};
+----------Cau 5:-----------
+SELECT {[Measures].[Profit]} ON COLUMNS
+FROM [TEST]
+WHERE {[Category].[Category].[Furniture]} * {[Market].[Market].[Africa]};
+//WHERE ([Category].[Category].[Technology], [Category].[Category].[Furniture]) * [Market].[Market].[Europe];
+----------Cau 6:-----------
+SELECT {[Measures].[Profit]} ON COLUMNS
+FROM [TEST]
+WHERE ([Category].[Category].[Furniture]) * {[Market].[Market].[Africa]};
+//WHERE ([Category].[Category].[Technology], [Category].[Category].[Furniture]) * {[Market].[Market].[Europe], [Market].[Market].[Africa]};
+----------Cau 7:-----------
+SELECT {[Measures].[Profit], [Measures].[Sales]} ON COLUMNS,
+NON EMPTY[Category].[Category].Members * [Sub Category].[Sub Category].Members ON ROWS
+FROM [TEST];
+----------Cau 8:-----------
+SELECT {[Measures].[Profit], [Measures].[Sales]} ON COLUMNS,
+ORDER([Category].[Category].[Furniture].[Sub Category].Children, [Measures].[Profit], BDESC) ON ROWS
+FROM [TEST];
+----------Cau 9:-----------
+SELECT {[Measures].[Profit]} ON COLUMNS,
+NON EMPTY[Category].[Category].Members ON ROWS
+FROM [TEST]
+WHERE [Market].[Market].Members;
+----------Cau 10:-----------
+SELECT {[Measures].[Profit]} ON COLUMNS
+FROM [TEST]
+WHERE [Category].[Category].Members * [Market].[Market].[Europe];
+----------Cau 11:-----------
+SELECT {[Measures].[Profit]} ON COLUMNS
+FROM [TEST]
+WHERE [Order Year].[Order Year].[2014];
+----------Cau 12:-----------
+SELECT {[Measures].[Profit], [Measures].[Sales], [Measures].[Quantity], [Measures].[Shipping Cost], [Measures].[Discount]} ON COLUMNS,
+NON EMPTY[Category].[Category].Members * [Segment].[Segment].Members * [Order Year].[Order Year].Members ON ROWS
+FROM [TEST];
+----------Cau 13:-----------
+SELECT {[Measures].[Profit]} ON COLUMNS,
+NON EMPTY[Category].[Category].Members * [Sub Category].[Sub Category].Members * [Market].[Market].Members * [Segment].[Segment].Members ON ROWS
+FROM [TEST];
+----------Cau 14:-----------
+SELECT {[Measures].[Sales]} ON COLUMNS,
+NON EMPTY[Category].[Category].Members ON ROWS
+FROM [TEST]
+WHERE [Order Year].[Order Year].[2014];
+----------Cau 15:-----------
+SELECT {[Measures].[Sales]} ON COLUMNS,
+FILTER([Category].[Category].Members, [Measures].[Sales] > 16000) ON ROWS
+FROM [TEST]
+WHERE [Order Year].[Order Year].[2014];
+----------Cau 16:-----------
+SELECT {[Measures].[Profit]} ON COLUMNS
+FROM [TEST]
+WHERE [Market].[Market].[Europe] * [Measures].[Profit] > 30000;
+----------Cau 17:-----------
+WITH MEMBER [Measures].[ActualProfit] AS [Measures].[Profit] - ([Measures].[Profit] * 0.1)
+SELECT {[Measures].[ActualProfit]} ON COLUMNS
+FROM [TEST]
+WHERE [Order Year].[Order Year].[2013];
+//WHERE [Order Year].[Order Year].[2012];
+----------Cau 18:-----------
+WITH MEMBER [Measures].[Tylechietkhau] AS [Measures].[Discount] / [Measures].[Sales] * 100
+SELECT {[Measures].[Tylechietkhau]} ON COLUMNS
+FROM [TEST]
+FROM [DW Global Superstore]
+WHERE [Order Year].[Order Year].[2012];
+//WHERE [Order Year].[Order Year].[2020];
+----------Cau 19:-----------
+SELECT {[Measures].[Sales]} ON COLUMNS,
+TOPCOUNT([City].[City].Members, 5, [Measures].[Sales]) ON ROWS
+FROM FROM [TEST];
+
+
+
+
