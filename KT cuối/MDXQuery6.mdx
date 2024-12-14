@@ -1,0 +1,42 @@
+--cau 2
+--cau a
+select non empty TONGTIEN on columns,
+non empty [Dim Thoi Gian].[Nam].[Nam] on rows
+from De2
+
+--cau b
+select [Measures].[SOLUONG] on columns,
+[Dim Thoi Gian].[Nam].members on rows,
+[Dim Khach Hang].[LOAKH] on pages from [de2] 
+
+--cau c
+select [Measures].[SOLUONG], [Measures].[TONGTIEN] on columns,
+[Dim Dia Diem].[KHUVUC].[KHUVUC].members* [Dim Dia Diem].[VUNG MIEN].[VUNG MIEN].members
+*[Dim Dia Diem].[TINH].[TINH].members on rows, [Dim Khach Hang].[LOAKH].members on pages from [de2]
+
+--cau 4
+--cau a
+select [Dim Dien Thoai].[TENDT].memebers on rows,
+[Measures].[SOLUONG] on columns from [de2];
+
+--cau b
+select [Dim Dien Thoai].[LOAIKH].members on rows,
+[Measures].[TONGTIEN] on columns from [de2] where
+([Dim Thoi Gian].[Nam].[2021], [Dim Thoi Gian].[Thang].[9]);
+
+--cau c
+select [Dim Thoi Gian].[Thang].members on rows,
+[Measures].[SOLUONG] on columns from [de2]
+where ([Dim Dien THoai].[TeNDT].[Samsung], [Dim Thoi Gian].[Nam].[2021])
+having [Measures].[SOLUONG] < 10 
+order by [Measures].[SOLUONG] asc
+
+--cau d
+with members [Measures].[CHIETKHAU] as [Measures].[TONGTIEN] * 0.05
+select [Measures].[CHIETKHAU] on columns form [de2]
+where ([Dim Khach Hang].[LOAKH].[Than Thiet],[Dim Thoi Gian].[Nam].[2019])
+
+--cau e
+select (topcount[Dim Dia Diem].[TINH].members,
+1, [Measures].[TONGTIEN]) on rows, [Measures].[TONGTIEN]) on columns
+from [de2] where [Dim Thoi Gian].[Nam].[2021]

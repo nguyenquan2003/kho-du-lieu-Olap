@@ -1,0 +1,82 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>ssis 2</Database>
+    <Server>localhost</Server>
+    <ConnectionString>DataSource=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>aF7rtXwZr/aHmG7ElvLo24VSxE4=14/12/2024 08:32:3914/12/2024 08:32:39</TimeStamp>
+        <ID>
+          <String>De2</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>6/yHg1ZSClwiIU0RVHdO99ArxTg=14/12/2024 09:29:5214/12/2024 08:32:53</TimeStamp>
+        <ID>
+          <String>De2</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>GbvZAA+daMvIZ8YGm1UTL5m1HJY=14/12/2024 08:36:2814/12/2024 08:33:04</TimeStamp>
+        <ID>
+          <String>Dim Thoi Gian</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>IxkVOj4CjEs3RQ/c7YR6lcRRWE4=14/12/2024 08:36:2814/12/2024 08:33:04</TimeStamp>
+        <ID>
+          <String>Dim Dia Diem</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6z9Q0VO9SyxoY9WcMrZbsxeDR9w=14/12/2024 08:36:2814/12/2024 08:33:04</TimeStamp>
+        <ID>
+          <String>Dim Khach Hang</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>phycnmzuZKkuHwmD190tYRwM5pk=14/12/2024 08:36:2914/12/2024 08:33:04</TimeStamp>
+        <ID>
+          <String>Dim Dien Thoai</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>H/o/wtGNTRbDgno+Hsxtj10k3Rw=14/12/2024 08:36:2814/12/2024 08:33:04tIM3S14GXH3zV/xmUdwlZPGLqUg=14/12/2024 08:33:0414/12/2024 08:33:04</TimeStamp>
+        <ID>
+          <String>De2</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>0TfUnKt9cV2hZSNcqoxl0etrXjk=14/12/2024 08:31:4614/12/2024 08:31:46</TimeStamp>
+      <ID>
+        <String>ssis 2</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2024-12-14T02:48:14.236667Z</LastDeployed>
+</DeploymentSnapshot>
