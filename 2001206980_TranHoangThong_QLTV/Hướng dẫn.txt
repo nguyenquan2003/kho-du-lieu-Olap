@@ -1,7 +1,0 @@
-1. Đổ dữ liệu từ Excel(ThuVien) vào Database(ThuVien) = SSIS_Excel
-2. Tạo các bảng Dim: DimNgayMuonTra(NGAYMUON, NGAYTRA), 
-		DimSach(MASACH, TENSACH, TACGIA), 
-		DimDocGia(MADOCGIA, HOTEN), 
-		DimTheLoai(MATHELOAI, TENTHELOAI), 
-		FactTong(SOLANMUON, SOLANTRA, SOLUONGTON, DONGIA, TONGTIEN)
-3. Ứng dụng giao diện: -Tạo database(QuanLyThuVien) đăng nhập = quyền windows
