@@ -1,0 +1,816 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/24/2023 10:56:33 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="THONG"
+  DTS:CreatorName="THONG\tranh"
+  DTS:DTSID="{9A673FBE-277D-4E4D-A249-775F2BD34E3A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{7CA28B48-0219-4C1E-93F3-CFCC9B16B783}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{E34FA755-8325-4CC6-926A-115B4F29289E}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=E:\Đại Học\Học Kỳ 7\Kho dữ liệu và OLAP\Thực hành\Đồ Án\ThuVien.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[THONG\THONG.ThuVien.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{19350C45-0026-40B3-BB71-1F957FBAABB9}"
+      DTS:ObjectName="THONG\THONG.ThuVien.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=THONG\THONG;User ID=sa;Initial Catalog=ThuVien;Provider=SQLOLEDB.1;Application Name=SSIS-Package-{19350C45-0026-40B3-BB71-1F957FBAABB9}THONG\THONG.ThuVien.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0ko+zskNUkGiZDuEPZLpgQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABzaPIlLh2rPxSMEK6k1sNsOFf2Npdu/51F92HdXEh0FAAAAAAOgAAAAAIAACAAAABBjtkD6VAcem/Io44N46Pv3W0H6UclnxlEGvtAPFHV2xAAAABjxO94iPXB7oXNkxS/F0HFQAAAAMGUTHwRkU1Mvx3069I9KskXYSIPyT0a4HmrYT08BR3tO+Ivu1IejKws2WV0ULBcGmSwFt7rTPaU6KsFoSHufk8</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ThuVien"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{73B3CAEB-9632-4274-918E-7AE7A5B361B8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ThuVien"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ThuVien\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ThuVien\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[MAHD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[MAHD]"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[MAHD]"
+                      name="MAHD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[NGAYMUON]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[NGAYMUON]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[NGAYMUON]"
+                      name="NGAYMUON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[NGAYTRA]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[NGAYTRA]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[NGAYTRA]"
+                      name="NGAYTRA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[MASACH]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[MASACH]"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[MASACH]"
+                      name="MASACH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TENSACH]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[TENSACH]"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TENSACH]"
+                      name="TENSACH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TACGIA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[TACGIA]"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TACGIA]"
+                      name="TACGIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[THELOAI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[THELOAI]"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[THELOAI]"
+                      name="THELOAI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TENTHELOAI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[TENTHELOAI]"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TENTHELOAI]"
+                      name="TENTHELOAI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[MADOCGIA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[MADOCGIA]"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[MADOCGIA]"
+                      name="MADOCGIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[HOTEN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[HOTEN]"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[HOTEN]"
+                      name="HOTEN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[SOLANMUON]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[SOLANMUON]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[SOLANMUON]"
+                      name="SOLANMUON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[SOLANTRA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[SOLANTRA]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[SOLANTRA]"
+                      name="SOLANTRA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[DONGIA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[DONGIA]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[DONGIA]"
+                      name="DONGIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[SOLUONGTON]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[SOLUONGTON]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[SOLUONGTON]"
+                      name="SOLUONGTON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TONGTIEN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[TONGTIEN]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TONGTIEN]"
+                      name="TONGTIEN"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[MAHD]"
+                      dataType="wstr"
+                      length="255"
+                      name="MAHD" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[NGAYMUON]"
+                      dataType="date"
+                      name="NGAYMUON" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[NGAYTRA]"
+                      dataType="date"
+                      name="NGAYTRA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[MASACH]"
+                      dataType="wstr"
+                      length="255"
+                      name="MASACH" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[TENSACH]"
+                      dataType="wstr"
+                      length="255"
+                      name="TENSACH" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[TACGIA]"
+                      dataType="wstr"
+                      length="255"
+                      name="TACGIA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[THELOAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="THELOAI" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[TENTHELOAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="TENTHELOAI" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[MADOCGIA]"
+                      dataType="wstr"
+                      length="255"
+                      name="MADOCGIA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[HOTEN]"
+                      dataType="wstr"
+                      length="255"
+                      name="HOTEN" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[SOLANMUON]"
+                      dataType="r8"
+                      name="SOLANMUON" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[SOLANTRA]"
+                      dataType="r8"
+                      name="SOLANTRA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[DONGIA]"
+                      dataType="r8"
+                      name="DONGIA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[SOLUONGTON]"
+                      dataType="r8"
+                      name="SOLUONGTON" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].ExternalColumns[TONGTIEN]"
+                      dataType="r8"
+                      name="TONGTIEN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[MAHD]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[MAHD]"
+                      name="MAHD" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[NGAYMUON]"
+                      dataType="date"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[NGAYMUON]"
+                      name="NGAYMUON" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[NGAYTRA]"
+                      dataType="date"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[NGAYTRA]"
+                      name="NGAYTRA" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[MASACH]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[MASACH]"
+                      name="MASACH" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[TENSACH]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[TENSACH]"
+                      name="TENSACH" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[TACGIA]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[TACGIA]"
+                      name="TACGIA" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[THELOAI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[THELOAI]"
+                      name="THELOAI" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[TENTHELOAI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[TENTHELOAI]"
+                      name="TENTHELOAI" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[MADOCGIA]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[MADOCGIA]"
+                      name="MADOCGIA" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[HOTEN]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[HOTEN]"
+                      name="HOTEN" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[SOLANMUON]"
+                      dataType="r8"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[SOLANMUON]"
+                      name="SOLANMUON" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[SOLANTRA]"
+                      dataType="r8"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[SOLANTRA]"
+                      name="SOLANTRA" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[DONGIA]"
+                      dataType="r8"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[DONGIA]"
+                      name="DONGIA" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[SOLUONGTON]"
+                      dataType="r8"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[SOLUONGTON]"
+                      name="SOLUONGTON" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[TONGTIEN]"
+                      dataType="r8"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[TONGTIEN]"
+                      name="TONGTIEN" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ThuVien\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Thuvien]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ThuVien\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[THONG\THONG.ThuVien.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[THONG\THONG.ThuVien.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MAHD]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MAHD"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MAHD]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[MAHD]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NGAYMUON]"
+                      cachedDataType="date"
+                      cachedName="NGAYMUON"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NGAYMUON]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[NGAYMUON]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NGAYTRA]"
+                      cachedDataType="date"
+                      cachedName="NGAYTRA"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NGAYTRA]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[NGAYTRA]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MASACH]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MASACH"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MASACH]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[MASACH]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TENSACH]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TENSACH"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TENSACH]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TENSACH]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TACGIA]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TACGIA"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TACGIA]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TACGIA]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[THELOAI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="THELOAI"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[THELOAI]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[THELOAI]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TENTHELOAI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TENTHELOAI"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TENTHELOAI]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TENTHELOAI]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MADOCGIA]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MADOCGIA"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MADOCGIA]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[MADOCGIA]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[HOTEN]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="HOTEN"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HOTEN]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[HOTEN]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SOLANMUON]"
+                      cachedDataType="r8"
+                      cachedName="SOLANMUON"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOLANMUON]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[SOLANMUON]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SOLANTRA]"
+                      cachedDataType="r8"
+                      cachedName="SOLANTRA"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOLANTRA]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[SOLANTRA]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DONGIA]"
+                      cachedDataType="r8"
+                      cachedName="DONGIA"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DONGIA]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[DONGIA]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SOLUONGTON]"
+                      cachedDataType="r8"
+                      cachedName="SOLUONGTON"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOLUONGTON]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[SOLUONGTON]" />
+                    <inputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TONGTIEN]"
+                      cachedDataType="r8"
+                      cachedName="TONGTIEN"
+                      externalMetadataColumnId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TONGTIEN]"
+                      lineageId="Package\ThuVien\Excel Source.Outputs[Excel Source Output].Columns[TONGTIEN]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MAHD]"
+                      dataType="wstr"
+                      length="255"
+                      name="MAHD" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NGAYMUON]"
+                      dataType="dbTimeStamp"
+                      name="NGAYMUON" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NGAYTRA]"
+                      dataType="dbTimeStamp"
+                      name="NGAYTRA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MASACH]"
+                      dataType="wstr"
+                      length="255"
+                      name="MASACH" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TENSACH]"
+                      dataType="wstr"
+                      length="255"
+                      name="TENSACH" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TACGIA]"
+                      dataType="wstr"
+                      length="255"
+                      name="TACGIA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[THELOAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="THELOAI" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TENTHELOAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="TENTHELOAI" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MADOCGIA]"
+                      dataType="wstr"
+                      length="255"
+                      name="MADOCGIA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HOTEN]"
+                      dataType="wstr"
+                      length="255"
+                      name="HOTEN" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOLANMUON]"
+                      dataType="r8"
+                      name="SOLANMUON" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOLANTRA]"
+                      dataType="r8"
+                      name="SOLANTRA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DONGIA]"
+                      dataType="r8"
+                      name="DONGIA" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SOLUONGTON]"
+                      dataType="r8"
+                      name="SOLUONGTON" />
+                    <externalMetadataColumn
+                      refId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TONGTIEN]"
+                      dataType="r8"
+                      name="TONGTIEN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ThuVien\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ThuVien\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ThuVien\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ThuVien\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ThuVien.Paths[Excel Source Output]"
+              endId="Package\ThuVien\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\ThuVien\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="116.8,41.6"
+          Id="Package\ThuVien"
+          TopLeft="168.571428930273,51.99999995442" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ThuVien">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\ThuVien\Excel Source"
+          TopLeft="189.285714688654,83.3529411034085" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\ThuVien\OLE DB Destination"
+          TopLeft="154.285714614148,219.47058804292" />
+        <EdgeLayout
+          Id="Package\ThuVien.Paths[Excel Source Output]"
+          TopLeft="258.485714688654,124.952941103408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.0000000745059,94.5176469395112"
+              Start="0,0"
+              End="-19.0000000745059,87.0176469395112">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.2588234697556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.2588234697556"
+                    Point2="0,47.2588234697556"
+                    Point3="-4,47.2588234697556" />
+                  <mssgle:LineSegment
+                    End="-15.0000000745059,47.2588234697556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.0000000745059,47.2588234697556"
+                    Point2="-19.0000000745059,47.2588234697556"
+                    Point3="-19.0000000745059,51.2588234697556" />
+                  <mssgle:LineSegment
+                    End="-19.0000000745059,87.0176469395112" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ThuVien\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ThuVien\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
