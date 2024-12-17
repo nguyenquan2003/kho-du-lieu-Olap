@@ -1,0 +1,13 @@
+﻿//Tính tổng số độc giả của thư viện
+select [Dim Doc Gia].[HOTEN] on rows, [Measures].[Dim Doc Gia Count] on columns
+from [Thu Vien];
+
+//Liệt kê số lượng sách của từng loại sách
+select [Measures].[SOLUONGTON] on columns, 
+[Dim Sach].[TENSACH].members on rows
+from [Thu Vien];
+
+//Tổng tiền của từng loại sách
+select [Measures].[TONGTIEN] on columns, 
+[Dim Sach].[TENSACH].members on rows
+from [Thu Vien];
